@@ -2,14 +2,17 @@ package com.br.meupedido.meupedido.data;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Pedido {
+@Getter
+public class Pedido implements Serializable {
     @Id
     private Long codigoPedido;
 

@@ -11,3 +11,13 @@ spring:
           auto: update
   jackson:
     property-naming-strategy: SNAKE_CASE
+
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+meuPedido:
+  queueName: "pedido.v1.criar-pedido-fila"
