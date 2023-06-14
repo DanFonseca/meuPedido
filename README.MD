@@ -2,7 +2,7 @@
 
 
 
-[![LinkedIn][linkedin-shield]][linkedin-url]
+[![LinkedIn][linkedin-shield]][https://www.linkedin.com/in/daniel-freitas-28666a134/]
 
 <!-- PROJECT LOGO -->
 <br />
@@ -67,10 +67,10 @@ Os principais recursos desta API são:
     * Versionamento da API: A estrategia de versionamento utilizada é de aplicar a versao na URI da API e no projeto separar as controllers com as respectivas versões por pacotes. E além disto, deixar a Collection na raiz do projeto e no repositório, para que a documentação da API seja também versionada.
 
   * Diagrama Arquiteturial:
-    <img src="arquitetura.drawio.png" alt="Logo">
+    * <img src="arquitetura.drawio.png" alt="Logo">
   
   * Modelagem da Base de Dados:
-    <img src="modelagem_bd.png" alt="Logo">
+    * <img src="modelagem_bd.png" alt="Logo">
 
 ### Built With
 
@@ -81,6 +81,8 @@ As tecnologias usadas neste projeto são:
 * [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
 * [Lombock](https://projectlombok.org/)
 * [Docker](https://www.docker.com/)
+* [macOS Ventura](https://www.apple.com/br/macos/ventura/)
+* [IntelliJ IDEA](https://www.jetbrains.com/pt-br/idea/)
 
 
 
