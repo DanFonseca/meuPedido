@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "1a882fea-7b1d-4913-9bfd-d70997df3936",
+		"name": "meu-pedido",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9645590"
+	},
+	"item": [
+		{
+			"name": "Enviar Pedido para Fila",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"codigoPedido\": 1001,\n    \"codigoCliente\": 1,\n    \"itens\": [\n        {\n            \"produto\": \"lápis\",\n            \"quantidade\": 100,\n            \"preco\": 1.10\n        },\n        {\n            \"produto\": \"caderno\",\n            \"quantidade\": 10,\n            \"preco\": 1.00\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/pedido",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"pedido"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pedidos Realizados Por Cliente e Quantidade Total",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/v1/report/pedido/quantidade?codigoCliente=11",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"report",
+						"pedido",
+						"quantidade"
+					],
+					"query": [
+						{
+							"key": "codigoCliente",
+							"value": "11"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Valor total do pedido",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/v1/report/pedido?codigoPedido=1001",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"report",
+						"pedido"
+					],
+					"query": [
+						{
+							"key": "codigoPedido",
+							"value": "1001"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
