@@ -30,9 +30,10 @@ public class Pedido implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, fetch= FetchType.EAGER)
     private List<Item> itens;
 
-    public Pedido (PedidoDTO pedidoDTO){
+    public Pedido (PedidoDTO pedidoDTO, Cliente cliente){
         this.codigoPedido = pedidoDTO.codigoPedido();
-        this.cliente = new Cliente(pedidoDTO.codigoCliente());
+        this.cliente = cliente;
         this.itens = pedidoDTO.itens().stream().map(Item::new).toList();
     }
+
 }

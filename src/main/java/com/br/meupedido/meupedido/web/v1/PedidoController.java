@@ -1,7 +1,6 @@
 package com.br.meupedido.meupedido.web.v1;
 
 import com.br.meupedido.meupedido.business.dto.PedidoDTO;
-import com.br.meupedido.meupedido.business.response.ValorTotalPedidoResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;

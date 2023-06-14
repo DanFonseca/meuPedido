@@ -1,6 +1,6 @@
 package com.br.meupedido.meupedido.business.response;
 
-public record ValorTotalPedidoResponse (
+public record CalculaPedidoResponse(
         Double ValorTotalDoPedido,
         Long codigoCliente
 ) {

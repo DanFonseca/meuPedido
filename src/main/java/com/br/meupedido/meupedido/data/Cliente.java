@@ -1,5 +1,6 @@
 package com.br.meupedido.meupedido.data;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,6 +21,7 @@ public class Cliente implements Serializable {
     private Long codigoCliente;
 
     @OneToMany(cascade = CascadeType.ALL, fetch= FetchType.EAGER)
+    @JsonIgnore
     private List<Pedido> pedidos;
 
     public Cliente (Long codigoCliente){

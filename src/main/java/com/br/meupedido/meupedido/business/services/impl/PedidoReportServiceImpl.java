@@ -1,6 +1,8 @@
 package com.br.meupedido.meupedido.business.services.impl;
 
-import com.br.meupedido.meupedido.business.response.ValorTotalPedidoResponse;
+import com.br.meupedido.meupedido.business.excpetion.NotFoundException;
+import com.br.meupedido.meupedido.business.response.CalculaPedidoResponse;
+import com.br.meupedido.meupedido.business.response.QuantidadePedidoPorClienteResponse;
 import com.br.meupedido.meupedido.business.services.PedidoReportService;
 import com.br.meupedido.meupedido.data.Cliente;
 import com.br.meupedido.meupedido.data.Item;
@@ -16,28 +18,36 @@ import java.util.List;
 @Slf4j
 public class PedidoReportServiceImpl implements PedidoReportService {
 
-    private PedidoRepository pedidoRepository;
-    private ClienteRepository clienteRepository;
+    private final PedidoRepository pedidoRepository;
+    private final ClienteRepository clienteRepository;
 
     public PedidoReportServiceImpl(PedidoRepository pedidoRepository, ClienteRepository clienteRepository) {
         this.pedidoRepository = pedidoRepository;
         this.clienteRepository = clienteRepository;
     }
 
-    public ValorTotalPedidoResponse calcularValorTotalDoPedido(Long codigoDoPedido) {
-        Pedido pedido = pedidoRepository.findByCodigoPedido(codigoDoPedido);
+    public CalculaPedidoResponse calculaPedido(Long codigoDoPedido) {
+        Pedido pedido = pedidoRepository.findByCodigoPedido(codigoDoPedido)
+                .orElseThrow(() -> new NotFoundException("Pedido não encontrado"));;
 
-        Double valorTotal =  pedido
+        Double valorTotal = pedido
                 .getItens()
                 .stream()
                 .mapToDouble(Item::getPreco).sum();
 
-        return new ValorTotalPedidoResponse(valorTotal, pedido.getCliente().getCodigoCliente());
+        return new CalculaPedidoResponse(valorTotal, pedido.getCliente().getCodigoCliente());
     }
 
-    public List<Cliente> getQuantidadePedidoPorCliente(Long codigoCliente) {
-        Long id = clienteRepository.findByCodigoCliente(codigoCliente).getId();
-        return this.clienteRepository.getQuantidadePedidoPorCliente(id);
+    public QuantidadePedidoPorClienteResponse getQuantidadePedidoPorCliente(Long codigoCliente) {
+        Cliente cliente = clienteRepository.findByCodigoCliente(codigoCliente)
+                .orElseThrow(() -> new NotFoundException("Cliente não encontrado"));;
+
+        List<Pedido> pedidos = pedidoRepository.findByClienteId(cliente.getId());
+
+        return new QuantidadePedidoPorClienteResponse(
+                pedidos.size(),
+                pedidos
+        );
     }
 
 }

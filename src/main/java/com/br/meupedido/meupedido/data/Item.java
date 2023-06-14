@@ -1,6 +1,7 @@
 package com.br.meupedido.meupedido.data;
 
 import com.br.meupedido.meupedido.business.dto.ItemDTO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,6 +25,7 @@ public class Item implements Serializable {
     private String produto;
 
     @ManyToOne(fetch= FetchType.EAGER)
+    @JsonIgnore
     private Pedido pedido;
 
     public Item (ItemDTO itemDTO) {

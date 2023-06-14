@@ -20,6 +20,6 @@ public class PedidoConsumer {
     public void receive (PedidoDTO pedidoDTO){
         log.info("Pedido {} Recebido com Sucesso.", pedidoDTO.codigoPedido());
         log.info("Salvando na base de dados...");
-        this.criarPedidoService.save(pedidoDTO);
+        this.criarPedidoService.criar(pedidoDTO);
     }
 }
