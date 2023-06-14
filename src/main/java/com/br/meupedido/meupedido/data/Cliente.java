@@ -14,8 +14,15 @@ import java.util.List;
 @Getter
 public class Cliente implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
+
     private Long codigoCliente;
 
     @OneToMany(cascade = CascadeType.ALL, fetch= FetchType.EAGER)
     private List<Pedido> pedidos;
+
+    public Cliente (Long codigoCliente){
+        this.codigoCliente = codigoCliente;
+    }
 }

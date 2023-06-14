@@ -1,9 +1,8 @@
 package com.br.meupedido.meupedido.business.services;
 
-import org.springframework.stereotype.Service;
+import com.br.meupedido.meupedido.business.dto.PedidoDTO;
 
-@Service
-public class CriarPedidoService {
+public interface CriarPedidoService {
 
-
+    public void save (PedidoDTO pedidoDTO);
 }
