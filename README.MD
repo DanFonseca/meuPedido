@@ -10,7 +10,7 @@
   <a href="https://github.com/othneildrew/Best-README-Template">
  </a>
 
-<h3 align="center">My Vote</h3>
+<h3 align="center">Meu Pedido</h3>
 
 
 
@@ -67,10 +67,10 @@ Os principais recursos desta API são:
     * Versionamento da API: A estrategia de versionamento utilizada é de aplicar a versao na URI da API e no projeto separar as controllers com as respectivas versões por pacotes. E além disto, deixar a Collection na raiz do projeto e no repositório, para que a documentação da API seja também versionada.
 
   * Diagrama Arquiteturial:
-      * ![](/Users/danielfreitas/Desktop/meuPedido/arquitetura.drawio.png)
+    <img src="arquitetura.drawio.png" alt="Logo">
   
   * Modelagem da Base de Dados:
-    * ![](/Users/danielfreitas/Desktop/meuPedido/modelagem_bd.png)
+    <img src="modelagem_bd.png" alt="Logo">
 
 ### Built With
 
