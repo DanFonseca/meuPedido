@@ -36,9 +36,12 @@ class CriarPedidoServiceTest {
 
         Mockito.when(clienteRepository
                 .findByCodigoCliente(pedidoDTO.codigoCliente())).thenReturn(Optional.empty());
-
         Mockito.when(pedidoRepository
                 .saveAndFlush(any())).thenReturn(null);
+        Mockito.when(pedidoRepository
+                .findByCodigoPedido(any())).thenReturn(Optional.empty());
+
+
 
         criarPedidoService.criar(pedidoDTO);
 
@@ -54,6 +57,8 @@ class CriarPedidoServiceTest {
                 .thenReturn(Optional.of(cliente));
         Mockito.when(pedidoRepository.saveAndFlush(any())).thenReturn(new Pedido());
         criarPedidoService.criar(pedidoDTO);
+        Mockito.when(pedidoRepository
+                .findByCodigoPedido(any())).thenReturn(Optional.empty());
 
         Mockito.verify(pedidoRepository, Mockito.times(2)).saveAndFlush(any(Pedido.class));
     }

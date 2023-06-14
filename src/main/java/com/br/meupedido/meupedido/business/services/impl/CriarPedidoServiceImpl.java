@@ -27,6 +27,11 @@ public class CriarPedidoServiceImpl implements CriarPedidoService {
     }
 
     public void criar(PedidoDTO pedidoDTO) {
+
+        if(pedidoRepository.findByCodigoPedido(pedidoDTO.codigoPedido()).isPresent()){
+            return;
+        }
+
         Optional <Cliente> cliente =
                 clienteRepository.findByCodigoCliente(pedidoDTO.codigoCliente());
 
